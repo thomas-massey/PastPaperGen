@@ -6,9 +6,7 @@ import React from 'react'
 function App() {
   return (
     <main>
-      <h1>Auth0 React Quickstart</h1>
-      <LoginButton />
-      <LogoutButton />
+      <h1>Hi</h1>
     </main>
   )
 }

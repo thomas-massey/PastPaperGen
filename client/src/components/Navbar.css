@@ -1,0 +1,30 @@
+/* This is css for a navbar that is on the top of the screen towards the right */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: #e70404;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+}
+
+/* Disable the list properties */
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make the image (profile pic) to be the most right one */
+.navbar .profile-picture {
+  border-radius: 50%;
+  height: 45px;
+}
+
+/* Put the logo to the left */
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-left: 20px;
+}

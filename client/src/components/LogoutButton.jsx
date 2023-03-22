@@ -6,9 +6,10 @@ const LogoutButton = () => {
     const { logout, isAuthenticated } = useAuth0();
     return (
         isAuthenticated && (
-            <button onClick={() => logout()}>
+            // A href is used here instead of a button because the Auth0 loginWithRedirect function
+            <a href="#" onClick={() => logout()}>
                 Log Out
-            </button>
+            </a>
         )
     )
 }
