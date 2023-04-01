@@ -23,3 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 *.env
+AUTH0_DOMAIN.js
+AUTH0_CLIENT_ID.js
