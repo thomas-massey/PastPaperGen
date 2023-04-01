@@ -6,9 +6,10 @@ const LoginButton = () => {
     const { loginWithRedirect, isAuthenticated } = useAuth0();
     return (
         !isAuthenticated && (
-            <button onClick={() => loginWithRedirect()}>
+            // A href is used here instead of a button because the Auth0 loginWithRedirect function
+            <a href="#" onClick={() => loginWithRedirect()}>
                 Log In
-            </button>
+            </a>
         )
     )
 }

@@ -1,0 +1,6 @@
+/* Make the profile picture circular and a diameter of the navbar*/
+
+.profile-picture {
+  border-radius: 50%;
+  height: 60px;
+}
