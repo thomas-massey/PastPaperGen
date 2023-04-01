@@ -9,22 +9,20 @@
   padding: 0 20px;
 }
 
-/* Disable the list properties */
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Make the logo 45px by 45px class name = navbar__logo */
+.navbar__logo {
+  height: 35px;
+  width: 35px;
+}
+
+/* Make the logo 45px by 45px class name = navbar__logo-img*/
+.navbar__logo-img {
+  height: 100%;
+  width: 100%;
 }
 
 /* Make the image (profile pic) to be the most right one */
 .navbar .profile-picture {
   border-radius: 50%;
   height: 45px;
-}
-
-/* Put the logo to the left */
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding-left: 20px;
 }

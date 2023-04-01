@@ -2,23 +2,22 @@ import React from 'react'
 import './Navbar.css'
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
-import ProfilePicture from './ProfilePicture'
+import ProfilePicture from './ProfilePicture' 
+import Logo from '../assets/PastPaperGen-logo.jpeg'
 
 function Navbar() {
   return (
     <nav className="navbar">
         <div className="navbar__logo">  
-            <h1>Logo</h1>
+            <img src={Logo} alt="PastPaperGen Logo" className='navbar__logo-img' />
         </div>
         <div className="navbar__links">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><LoginButton /></li>
-                <li><LogoutButton /></li>
-                <li><ProfilePicture /></li>
-            </ul>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <LoginButton />
+            <LogoutButton />
+            <ProfilePicture />
         </div>
     </nav>
   )
