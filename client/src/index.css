@@ -1,0 +1,12 @@
+body {
+    /* Background Colour */
+    background-color: #00b3b3;
+    background-image: linear-gradient(315deg, #00b3b3 0%, #ffff1ac8 74%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* Font */
+    font-family: "Basier Circle", sans-serif;
+    /* Font Colour */
+    color: #004266;
+}

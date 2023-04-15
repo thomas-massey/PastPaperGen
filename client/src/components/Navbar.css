@@ -8,7 +8,7 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 0 20px;
 }
-
+  
 /* Make the logo 45px by 45px class name = navbar__logo */
 .navbar__logo {
   height: 35px;

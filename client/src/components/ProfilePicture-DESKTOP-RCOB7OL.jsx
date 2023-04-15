@@ -6,10 +6,10 @@ function ProfilePicture() {
   const { user, isAuthenticated } = useAuth0();
   return (
     <>
-    {/* Circular image */}
-    {isAuthenticated && (
-      <img src={user.picture} alt={user.name} className="profile-picture" />
-    )}
+      {/* Circular image */}
+      {isAuthenticated && (
+        <img src={user.picture} alt={user.name} className="profile-picture" />
+      )}
     </>
   )
 }

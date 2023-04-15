@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import Navbar from './components/Navbar'
 import './index.css'
 import { Auth0Provider } from '@auth0/auth0-react'
@@ -12,6 +11,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 import Home from './pages/Home'
 import About from './pages/About'
+import Contact from './pages/Contact'
 import Contribute from './pages/Contribute'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -27,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/contribute" element={<Contribute />} />
         </Routes>
       </BrowserRouter>

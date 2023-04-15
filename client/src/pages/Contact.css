@@ -1,0 +1,12 @@
+#contact-form {
+    /* Centre the whole thing */
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    /* Centre the text within the box */
+    text-align: center;
+    /* Space the text */
+    line-height: 2em;
+}
