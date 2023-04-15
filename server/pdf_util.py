@@ -7,6 +7,7 @@ import re
 import hashlib
 import os
 import shutil
+from docxcompose.composer import Composer
 
 def convert_pdf_to_docx(pdf_path, docx_path):
     if not os.path.isfile(docx_path):
@@ -67,6 +68,7 @@ def replace_docx_visable_metadata(docx_path,number_of_questions):
 
 def add_questions_to_paper(docx_path,number_of_questions):
     paper = Document(docx_path)
+    composer = Composer(paper)
     # Create a list of random 1's or 3's
     for i in range(int(number_of_questions)):
         # Get a random question from any subdirectory of the questions directory
@@ -75,10 +77,9 @@ def add_questions_to_paper(docx_path,number_of_questions):
         question_libary = random.choice(question_libary_list)
         question = random.choice(os.listdir("server/static/docx/Maths/Libary/Questions/" + question_libary))
         question = Document("server/static/docx/Maths/Libary/Questions/" + question_libary + "/" + question)
-        for element in question.element.body:
-            paper.element.body.append(element)
+        composer.append(question)
         print("Added question " + str(i + 1) + " to paper of ID " + docx_path)
-    paper.save(docx_path)
+    composer.save(docx_path)
     paper = Document(docx_path)
     # Now go through the whole paper and replace the string "{{question_number}}" with the question number
     question_number = 1
@@ -88,20 +89,26 @@ def add_questions_to_paper(docx_path,number_of_questions):
         if '{{question_number}}' in paragraph.text:
             inline = paragraph.runs
             # Loop added to work with runs (strings with same style)
+            replaced = False
             for i in range(len(inline)):
                 if '{{question_number}}' in inline[i].text:
                     text = inline[i].text.replace('{{question_number}}', str(question_number))
                     inline[i].text = text
                     question_number += 1
                     print("Replaced {{question_number}} with " + str(question_number - 1))
+                    replaced = True
+            if not replaced:
+                print("Could not replace {{question_number}} for question " + str(question_number))
+                question_number += 1
+    docx_path = docx_path.replace("Generating", "Generated")
     paper.save(docx_path)
 
 def create_docx():
-    dir = "server/static/docx/Maths/Generated/Papers/"
+    dir = "server/static/docx/Maths/Generating/Papers/"
     # For now - it is the hash of the time
     name = hashlib.sha256(str(datetime.datetime.now()).encode('utf-8')).hexdigest() + ".docx"
     # Copy the template to the new file
-    shutil.copyfile("server/static/docx/Maths/Libary/Questions/Admin/OCR_cover.docx", "server/static/docx/Maths/Generated/Papers/" + name)
+    shutil.copyfile("server/static/docx/Maths/Libary/Questions/Admin/OCR_cover.docx", dir + name)
     print("Created " + name)
     print("Files relative location is: " + dir + name)
     return dir + name
@@ -111,8 +118,9 @@ def generate_paper(number_of_questions):
     convert_pdf_to_docx("server/static/pdf/Maths/Libary/Questions/Admin/OCR_cover.pdf", "server/static/docx/Maths/Libary/Questions/Admin/OCR_cover.docx")
     filename = create_docx()
     replace_docx_visable_metadata(filename, str(number_of_questions))
+    # Currently corrupts the file
     add_questions_to_paper(filename, number_of_questions)
-    convert_docx_to_pdf(filename, filename.replace("docx", "pdf").replace("docx", "pdf"))
+    # convert_docx_to_pdf(filename, filename.replace("docx", "pdf").replace("docx", "pdf"))
     return None
 
 if __name__ == "__main__":
