@@ -26,20 +26,24 @@ function Contribute() {
         formData2.append('AS', e.target.AS.checked)
         formData2.append('A', e.target.A.checked)
         formData2.append('MEI', e.target.MEI.checked)
-        axios.post('http://127.0.0.1:5000/api/create_paper', formData2, {
+        formData2.append('topics', e.target.topics.value)
+        axios.post('http://127.0.0.1:5000/api/maths/create_paper', formData2, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
         })
       }}>
-        <input type="number" name="number_of_questions" />
-        <p>AS</p>
-        <input type="checkbox" name="AS" />
-        <p>A</p>
-        <input type="checkbox" name="A" />
-        <p>MEI</p>
-        <input type="checkbox" name="MEI" />
-        <input type="submit" value="Generate" />
+        <input type="number" name="number_of_questions" /> Number of Questions <br />
+        <input type="checkbox" name="AS" /> AS <br />
+        <input type="checkbox" name="A" /> A <br />
+        <input type="checkbox" name="MEI" /> MEI <br />
+        <h2>Topics</h2>
+        <input type="checkbox" name="topics" value="Algebra" /> Algebra <br />
+        <input type="checkbox" name="topics" value="Arithmetic" /> Arithmetic <br />
+        <input type="checkbox" name="topics" value="Calculus" /> Calculus <br />
+        <input type="checkbox" name="topics" value="Coordinate Geometry" /> Coordinate Geometry <br />
+        <input type="checkbox" name="topics" value="Functions" /> Functions <br />
+        <input type="checkbox" name="topics" value="Geometry" /> Geometry <br />
       </form>
       <h1>Downloads</h1>
       <button>Download</button>

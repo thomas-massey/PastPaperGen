@@ -15,9 +15,10 @@ def upload():
     file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
     return "files uploaded successfully"
 
-@app.route('/api/create_paper', methods=['POST'])
+@app.route('/api/maths/create_paper/', methods=['POST'])
 def create_paper():
     number_of_questions = request.form['number_of_questions']
+    topics = request.form['topics']
     pdf_util.generate_paper(number_of_questions)
     return "200 - OK"
 
