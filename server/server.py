@@ -18,7 +18,17 @@ def upload():
 @app.route('/api/maths/create_paper/', methods=['POST'])
 def create_paper():
     number_of_questions = request.form['number_of_questions']
+    paper_types = request.form['paper_types']
     topics = request.form['topics']
+    if type(number_of_questions) != int:
+        return "Please enter the number of questions"
+    if number_of_questions < 1:
+        return "Please enter a number greater than 0"
+    if number_of_questions > 100:
+        return "Please enter a number less than 100"
+    print("Number of questions: ", number_of_questions)
+    print("Paper types: ", paper_types)
+    print("Topics: ", topics)
     pdf_util.generate_paper(number_of_questions)
     return "200 - OK"
 
