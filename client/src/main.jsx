@@ -13,8 +13,10 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Contribute from './pages/Contribute'
+import Clarity from 'components/Clarity'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <Clarity />,
   <React.StrictMode>
     <Auth0Provider
       domain={domain}

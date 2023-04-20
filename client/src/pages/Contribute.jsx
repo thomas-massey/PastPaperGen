@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import "./Contribute.css"
 
 function Contribute() {
   return (
@@ -38,12 +39,14 @@ function Contribute() {
         <input type="checkbox" name="A" /> A <br />
         <input type="checkbox" name="MEI" /> MEI <br />
         <h2>Topics</h2>
-        <input type="checkbox" name="topics" value="Algebra" /> Algebra <br />
-        <input type="checkbox" name="topics" value="Arithmetic" /> Arithmetic <br />
-        <input type="checkbox" name="topics" value="Calculus" /> Calculus <br />
-        <input type="checkbox" name="topics" value="Coordinate Geometry" /> Coordinate Geometry <br />
-        <input type="checkbox" name="topics" value="Functions" /> Functions <br />
-        <input type="checkbox" name="topics" value="Geometry" /> Geometry <br />
+        <div class="topics_selection">
+          <input type="checkbox" name="topics" value="Algebra" /> Algebra <br />
+          <input type="checkbox" name="topics" value="Arithmetic" /> Arithmetic <br />
+          <input type="checkbox" name="topics" value="Calculus" /> Calculus <br />
+          <input type="checkbox" name="topics" value="Coordinate Geometry" /> Coordinate Geometry <br />
+          <input type="checkbox" name="topics" value="Functions" /> Functions <br />
+          <input type="checkbox" name="topics" value="Geometry" /> Geometry <br />
+        </div>
       </form>
       <h1>Downloads</h1>
       <button>Download</button>
