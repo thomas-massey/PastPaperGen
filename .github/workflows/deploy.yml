@@ -35,11 +35,13 @@ jobs:
           name: production-files
           path: ./client/dist
 
+# Deploy to GitHub Pages
+
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+
 
     steps:
       - name: Download artifact
