@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       clientId={clientId}
       authorizationParams={{ redirect_uri: window.location.origin }}
     >
-      <BrowserRouter>
+      <HashRouter basename="/">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/contact" element={<Contact />} />
           <Route path="/contribute" element={<Contribute />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Auth0Provider>
   </React.StrictMode>,
 )
