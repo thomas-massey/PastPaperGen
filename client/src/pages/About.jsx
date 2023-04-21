@@ -11,7 +11,7 @@ function About() {
       <p>We give you access to tools to create your own taylored past papers, and we also give you access to a database of past papers that you can download.</p>
       <p>Our aim is to make the process of creating past papers as easy as possible, and to make the process of downloading past papers as easy as possible.</p>
       <p>Our website is designed to be as user friendly as possible, and we hope that you enjoy using it.</p>
-      <p>Thank you for using PastPaperGen!</p>
+      <p>Thank you for using PastPaperGen.com!</p>
       
     </div>
   )
