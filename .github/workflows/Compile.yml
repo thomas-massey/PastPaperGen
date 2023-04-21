@@ -6,10 +6,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Build the vite app
     steps:
-    - uses: actions/checkout@v2
-    - run: |
-        cd client
-        npm install
-        npm run build
-        npm run preview
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      # Create the environment variables from the secrets
+      - name: Create environment variables
+        run: |
+          echo "REACT_APP_AUTH0_DOMAIN=$REACT_APP_AUTH0_DOMAIN" >> $GITHUB_ENV
+          echo "REACT_APP_AUTH0_CLIENT_ID=$REACT_APP_AUTH0_CLIENT_ID" >> $GITHUB_ENV
+      - run: cd client
+      - run: npm install
+      - run: npm run build
+      - run: npm run preview

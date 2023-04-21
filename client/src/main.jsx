@@ -4,8 +4,9 @@ import Navbar from './components/Navbar'
 import './index.css'
 import { Auth0Provider } from '@auth0/auth0-react'
 
-import domain from './AUTH0_DOMAIN.js'
-import clientId from './AUTH0_CLIENT_ID.js'
+// Get domain and client ID from environment variables
+const domain = process.env.REACT_APP_AUTH0_DOMAIN
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
