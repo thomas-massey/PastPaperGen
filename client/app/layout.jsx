@@ -8,7 +8,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
-  title: 'My website',
+  title: 'PastPaperGen',
   description: 'This is my website',
   image: 'https://example.com/image.png',
 }
