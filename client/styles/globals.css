@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Blueish gradient */
 body {
   background: rgb(2, 0, 36);
   background: linear-gradient(
