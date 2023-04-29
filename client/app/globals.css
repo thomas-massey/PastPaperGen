@@ -25,17 +25,3 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-nav {
-  /* create a box */
-  background: rgb(var(--background-start-rgb));
-  box-shadow: 0 0 10px rgba(var(--foreground-rgb), 0.5);
-  /* make it stick to the top */
-  position: sticky;
-  top: 0;
-  /* make it span the whole width */
-  width: 100%;
-  /* make it stay on top of the content */
-  z-index: 1;
-  
-}

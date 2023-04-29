@@ -1,5 +1,7 @@
 import './globals.css'
 import { Montserrat } from 'next/font/google'
+import Navbar from '@/components/Navbar'
+import { Analytics } from '@vercel/analytics/react'
 
 const montserrat = Montserrat({
   weight: ['400', '700'],
@@ -9,8 +11,8 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: 'PastPaperGen',
-  description: 'This is my website',
-  image: 'https://example.com/image.png',
+  description: 'Tayloried to you',
+  image: 'https://pastpapergen.com/next.svg',
 }
 
 export default function RootLayout({ children }) {
@@ -18,21 +20,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head />
       <body className={`${montserrat.className} mx-32 my-12`}>
-        <nav>
-          <h1>Logo</h1>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About us</a>
-            </li>
-            <li>
-              <a href="/sign-up">Sign up</a>
-            </li>
-          </ul>
-        </nav>
+        <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   )
