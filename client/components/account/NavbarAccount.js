@@ -8,8 +8,8 @@ function NavbarAccount() {
   if (session) {
     return (
       <>
-        <button onClick={() => signOut()}>Sign out</button>
-        <Image src={session.user.image} alt="Profile Picture" width={100} height={100} style={{borderRadius: 50}} />
+        <button onClick={() => signOut()} className='p-4'>Sign out</button>
+        <Image src={session.user.image} alt="Profile Picture" width={100} height={100} style={{ borderRadius: 50 }} />
       </>
     )
   }
