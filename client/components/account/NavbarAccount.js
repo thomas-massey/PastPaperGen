@@ -9,7 +9,7 @@ function NavbarAccount() {
     return (
       <>
         <button onClick={() => signOut()}>Sign out</button>
-        <Image src={session.user.image} alt="Profile Picture" width={50} height={50} style={{borderRadius: 50}} />
+        <Image src={session.user.image} alt="Profile Picture" width={100} height={100} style={{borderRadius: 50}} />
       </>
     )
   }
