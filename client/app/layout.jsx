@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 export const metadata = {
   title: 'PastPaperGen',
   description: 'Tayloried to you',
-  image: 'https://pastpapergen.com/next.svg',
+  image: 'https://pastpapergen.com/logo.png',
 }
 
 export default function RootLayout({ children }) {
