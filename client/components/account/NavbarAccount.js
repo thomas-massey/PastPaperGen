@@ -14,7 +14,9 @@ function NavbarAccount() {
     )
   }
   return (
+    <div className='px-4'>
       <button onClick={() => signIn()}>Sign in</button>
+    </div>
   )
 }
 
