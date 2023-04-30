@@ -11,7 +11,7 @@ export default function SupportedSubjects() {
         <div className='flex justify-center items-center'>
             <ul>
             {subjects.map((subject) => (
-                <li className='flex justify-center items-center'>
+                <li key={subject} className='flex justify-center items-center'>
                     <h1 className='text-4xl font-semibold p-9'>{subject}</h1>
                 </li>
             ))}
