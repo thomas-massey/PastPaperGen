@@ -4,7 +4,7 @@ import Logo from '@/public/logo.png'
 import NavbarAccount from '@/components/account/NavbarAccount'
 import Link from 'next/link'
 
-function Navbar() {
+export default function Navbar() {
     return (
         // Colour of the navbar is ff8400
         <div className="flex justify-between items-center bg-gradient-to-r bg-ff8400">
@@ -21,5 +21,3 @@ function Navbar() {
         </div>
     )
 }
-
-export default Navbar
