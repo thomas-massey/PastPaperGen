@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import GetStartedButton from '../components/index/GetStartedButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,8 +22,7 @@ export default function Home() {
         Giving you the power like never before to create your own past papers.
       </h2>
       <div className='flex justify-center items-center'>
-        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Get Started</button>
-        {/* If logged in, go to /learn, else go to pricing or login */}
+        <GetStartedButton />
       </div>
       <div className='flex justify-center items-center'>
         <p className='text-2xl font-semibold'>
