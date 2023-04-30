@@ -3,7 +3,8 @@ import Contacts from './Contacts'
 
 function Footer() {
   return (
-    <div className='flex justify-center items-center h-16 bg-black text-white'>
+    // Black and white text
+    <div className='post-absolute bottom-0 w-full bg-black text-white text-center p-4'>
         <p className='text-2xl font-semibold'>
             PastPaperGen
         </p>

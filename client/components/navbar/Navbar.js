@@ -15,6 +15,7 @@ export default function Navbar() {
                     <Link href="/about" className='p-4'>About</Link>
                     <Link href="/learn" className='p-4'>Learn</Link>
                     <Link href="/contact" className='p-4'>Contact</Link>
+                    <Link href="/pricing" className='p-4'>Pricing</Link>
                 </div>
                 <div className='flex justify-end items-center'>
                     <NavbarAccount />

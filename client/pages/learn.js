@@ -1,7 +1,7 @@
 import React from 'react'
 import LearnNavbar from '@/components/navbar/LearnNavbar'
 import { getSession } from 'next-auth/react'
-import SupportedSubjects from '@/components/learn/SupportedSubjects'
+import SelectCountry from '@/components/learn/SelectCountry'
 
 export default function Learn() {
   return (
@@ -14,7 +14,7 @@ export default function Learn() {
             </h2>
         </div>
         <div className="flex justify-center items-center h-16 bg-black text-white"></div>
-        <SupportedSubjects />
+        <SelectCountry />
     </div>
   )
 }
