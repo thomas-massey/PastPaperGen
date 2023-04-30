@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { signIn, signOut, useSession } from "next-auth/react"
 
-function login() {
+export default function Login() {
     const { data: session } = useSession()
     if (session) {
         return (
@@ -24,5 +24,3 @@ function login() {
         </div>
     )
 }
-
-export default login
