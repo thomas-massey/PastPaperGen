@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define base colours */
+:root {
+  --primary: #f6f1e9;
+  --secondary: #ffd93d;
+  --tertiary: #ff8400;
+  --quaternary: #4f200d;
+}
+
 body {
   background: rgb(2, 0, 36);
   background: linear-gradient(
     270deg,
-    rgba(9, 9, 121, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
+    var(--primary) 0%,
+    var(--secondary) 35%,
+    var(--tertiary) 100%
   );
 }

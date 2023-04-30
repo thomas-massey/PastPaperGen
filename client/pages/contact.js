@@ -30,10 +30,10 @@ function Contact() {
             </form>
             <div className="contact-info text-center">
                 <a href="https://www.reddit.com/r/pastpapergen/">
-                    <img src="https://img.icons8.com/color/48/000000/reddit--v1.png" alt="Reddit" />
+                    <Image src="/reddit.png" alt="Reddit" width={100} height={100} />
                 </a>
                 <a href="https://twitter.com/pastpapergen">
-                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter" />
+                    <Image src="/twitter.png" alt="Twitter" width={100} height={100} />
                 </a>
             </div>
         </div>

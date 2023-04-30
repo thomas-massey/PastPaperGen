@@ -6,7 +6,8 @@ import Link from 'next/link'
 
 function Navbar() {
     return (
-        <div className="flex justify-between items-center h-26 bg-white text-black relative shadow-sm font-mono" role="navigation">
+        // Colour of the navbar is ff8400
+        <div className="flex justify-between items-center bg-gradient-to-r bg-ff8400">
             <div className="p-4">
                 <Image src="/logo.png" alt="Logo" width={100} height={100} />
             </div>
