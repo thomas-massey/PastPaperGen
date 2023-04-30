@@ -3,6 +3,12 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const meta = {
+  title: 'PastPaperGen',
+  description: 'Giving you the power like never before to create your own past papers.',
+  image: 'https://pastpapergen.com/logo.png'
+}
+
 export default function Home() {
   const total_number_of_users = 1000
   const total_number_of_paper = 100000
