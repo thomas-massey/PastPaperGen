@@ -8,7 +8,7 @@ export default function paper_generation() {
         <div className='flex justify-center items-center'>
             <ul>
                 <li className='flex justify-center items-center'>
-                    <embed src="/paper.pdf" type="application/pdf" width="640" height="480"></embed>
+                    <embed src="/paper.pdf" type="application/pdf" width="100%" height="600px" />
                 </li>
             </ul>
         </div>
