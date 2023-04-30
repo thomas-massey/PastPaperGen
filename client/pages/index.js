@@ -20,10 +20,10 @@ export default function Home() {
       </div>
       <div className='flex justify-center items-center'>
         <p className='text-2xl font-semibold'>
-          Total number of users: {total_number_of_users}
+          Total number of users: STILL TO ADD
         </p>
         <p className='text-2xl font-semibold'>
-          Total number of papers: {total_number_of_paper}
+          Total number of papers: STILL TO ADD
         </p>
       </div>
     </div>
