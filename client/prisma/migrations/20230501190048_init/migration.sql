@@ -8,5 +8,13 @@ CREATE TABLE "User" (
     "avatar" TEXT
 );
 
+-- CreateTable
+CREATE TABLE "Scoreboard" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "score" INTEGER NOT NULL,
+    "userId" TEXT NOT NULL,
+    CONSTRAINT "Scoreboard_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");

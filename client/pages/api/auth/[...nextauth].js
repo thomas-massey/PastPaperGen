@@ -12,10 +12,10 @@ export const authOptions = {
     InstagramProvider({
       clientId: process.env.INSTAGRAM_CLIENT_ID,
       clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
-    }),
+    })
     // ...add more providers here
   ],
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.SECRET,
 }
 
 export default NextAuth(authOptions)
