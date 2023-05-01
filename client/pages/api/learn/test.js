@@ -1,5 +1,17 @@
-import React from "react";
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../auth/[...nextauth]"
 
-export default function handler(req, res) {
-  res.status(200).json({ text: "Hello" });
+export default async function handler(req, res) {
+  const session = await getServerSession(req, res, authOptions)
+
+  if (session) {
+    return res.send({
+      content:
+        "This is protected content. You can access this content because you are signed in.",
+    })
+  }
+
+  res.send({
+    error: "You must be signed in to view the protected content on this page.",
+  })
 }
