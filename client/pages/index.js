@@ -14,10 +14,10 @@ export default function Home() {
   const total_number_of_paper = 100000
   return (
     <div className="">
-      {/* Make this get smaller depending on the screen size */}
-      <h1 className='text-9xl font-bold text-center py-20'>
-        PastPaperGen
-      </h1>
+      {/* All on the same lin */}
+      <div className='text-9xl font-bold text-center py-5 flex justify-center items-center'>
+        <h1>Past</h1><h1 className=''>Paper</h1><h1>Gen</h1>
+      </div>
       <h2 className='text-4xl font-semibold text-center py-20'>
         Giving you the power like never before to create your own past papers.
       </h2>
