@@ -32,12 +32,12 @@ function gpt_test() {
                 Submit
             </button>
         </div>
-        <div className="flex flex-row items-center justify-center py-4">
+        <div className="flex flex-row text-2xl items-center justify-center py-4">
             <p id="marks"></p>
         </div>
-        <div className="flex flex-row items-center justify-center py-4">
+        <div className="flex flex-row text-xl items-center justify-center py-4">
             <p id="improvement"></p>
-        <Image
+        </div>
     </div>
   )
 }
