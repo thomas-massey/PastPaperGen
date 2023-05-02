@@ -5,19 +5,21 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
-    // get input from frontend
-    const input = req.body.input;
-    // send input to GPT-3 API via npm package
-    const ai_response = await openai.createCompletion({
-        model: "text-ada-001",
-        prompt: input,
-        temperature: 0,
-        maxTokens: 15
-    });
-    console.log(ai_response.data);
-
-    res.send({
-        answer: "This is a test of the GPT-3 API.",
-        ai_answer: ai_response.data.choices[0].text
+    // Get the prompt from the request body
+    const { prompt } = req.body.input;
+    console.log("Prompt: " + prompt)
+    // Generate the answer
+    const gptResponse = await openai.complete({
+        engine: 'davinci',
+        prompt: prompt,
+        maxTokens: 100,
+        temperature: 0.9,
+        topP: 1,
+        presencePenalty: 0,
+        frequencyPenalty: 0,
+        bestOf: 1,
     })
+    console.log("GPT Response: " + gptResponse.data.choices[0].text)
+    // Send the answer back to the client
+    res.status(200).json({ ai_answer: gptResponse.data.choices[0].text });
 }
