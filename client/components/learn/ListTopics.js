@@ -8,7 +8,7 @@ export default function ListTopics() {
   return (
     <div className="overflow-auto h-96">
       {topics.map((topic) => (
-        <div>
+        <div key={topic} className="flex items-center">
           <input type="checkbox" id={topic} name={topic} value={topic} />
           <label for={topic}>{topic}</label>
         </div>
