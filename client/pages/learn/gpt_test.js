@@ -25,17 +25,16 @@ function gpt_test() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    // display output
-                    document.getElementById("output").innerHTML = "Output: " + data.ai_answer;
+                    document.getElementById("marks").innerHTML = "Marks: " + data.marks;
+                    document.getElementById("improvement").innerHTML = "Improvement: " + data.improvement;
                 })
             }}>
                 Submit
             </button>
         </div>
         <div className="flex flex-row items-center justify-center py-4">
-            <p id="output">
-                Output:
-            </p>
+            <p id="marks"></p>
+            <p id="improvement"></p>
         </div>
     </div>
   )

@@ -16,7 +16,10 @@ export default async function handler(req, res) {
             temperature: 1
         });
         console.log(response.data.choices[0].text);
-        res.status(200).json({ ai_answer: response.data.choices[0].text });
+        res.status(200).json({
+            marks: 7,
+            improvement: response.data.choices[0].text
+        });
     };
     runPrompt();
 }
