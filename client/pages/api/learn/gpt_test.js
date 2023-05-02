@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     const { prompt } = req.body.input;
     console.log("Prompt: " + prompt)
     // Generate the answer
-    const gptResponse = await openai.complete({
+    const gptResponse = await openai.createCompletion({
         engine: 'davinci',
         prompt: prompt,
         maxTokens: 100,
