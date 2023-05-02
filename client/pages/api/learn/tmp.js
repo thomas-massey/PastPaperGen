@@ -1,8 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
-
-const configuration = new Configuration({
-    apiKey: "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",
-});
+// Measure the time it takes to run the prompt
+const start = new Date().getTime();
 
 const openai = new OpenAIApi(configuration);
 
@@ -12,11 +10,12 @@ const runPrompt = async () => {
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: prompt,
-        max_tokens: 2048,
+        max_tokens: 100,
         temperature: 1
     });
 
     console.log(response.data.choices[0].text);
+    console.log("Time taken: " + (new Date().getTime() - start) + "ms");
 };
 
 runPrompt();
