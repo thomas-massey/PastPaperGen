@@ -1,4 +1,4 @@
-{"prompt": "{
+{"prompt": '{
     answer: "The strong force is the force that holds protons and neutrons together. It is repulsive at distances less than 0.5 fm. (It has a range up to 3fm) The electrostatic force is always attractive but only affects charged particles so only protons in the nucleus and has an infinite range. The strong force only affects hadrons, so both protons and neutrons. Since a (208/82)Pb nucleus is so dense the strong force must be repulsive as the nucleons are squished together, distance < 0.5 fm and since the electrostatic force only affects protons and has an infinite range, there must be less protons.",
     mark_scheme: "Any 3 marking points from 1 to 5
 1Strong nuclear force (SNF) affects nucleons or protons and
@@ -23,8 +23,8 @@ force’ is used only penalise once.
 Any wrong statement made in the first group of
 marking points then this section has a
 maximum 2 marks out of 3.",
-}", "completion": "
-    marks: 3
-    feedback: "A good primary understanding of the strong force, however the question itself was not fully answered."
-    improvement: "The strong force is the force that holds protons and neutrons together. It is repulsive at distances less than 0.5 fm. (It has a range up to 3fm) The electrostatic force is always attractive but only affects charged particles so only protons in the nucleus and has an infinite range. The strong force only affects hadrons, so both protons and neutrons. Since a (208/82)Pb nucleus is so dense the strong force must be repulsive as the nucleons are squished together, distance < 0.5 fm and since the electrostatic force only affects protons and has an infinite range, there must be less protons."
-"}
+}', "completion": "{
+    marks: "3",
+    feedback: "A good primary understanding of the strong force, however the question itself was not fully answered.",
+    improvement: "The strong nuclear force, also known as the strong force, acts between nucleons (protons and neutrons) in the nucleus of an atom. It is attractive and has a range of up to 3 fm. However, at distances less than 0.8 fm, it becomes repulsive, preventing the nucleus from collapsing. The electromagnetic force, also known as the electrostatic force, is always attractive but only affects charged particles, such as protons. It has an infinite range and only affects protons in the nucleus. In the case of a (208/82)Pb nucleus, the strong force must be repulsive due to the dense packing of nucleons, at distances less than 0.8 fm. As a result, fewer protons are required to reduce the repulsion and increase stability."
+}
