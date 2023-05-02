@@ -9,6 +9,7 @@ function LearnNavbar() {
             <Link href="/learn" className='p-4 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-red-500 hover:to-pink-500'>Learn</Link>
             <Link href="/learn/paper_generation" className='p-4 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-red-500 hover:to-pink-500'>Paper Generation</Link>
             <Link href="/learn/quesion_practice" className='p-4 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-red-500 hover:to-pink-500'>Question Practice</Link>
+            <Link href="/learn/gpt_test" className='p-4 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-red-500 hover:to-pink-500'>BETA: GPT Test</Link>
         </nav>
     </div>
   )
