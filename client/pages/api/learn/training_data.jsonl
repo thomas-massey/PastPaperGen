@@ -1,0 +1,9 @@
+{"prompt": "{
+    answer: "The answer is 42.",
+    mark_scheme: "42",
+    additional_marking_context: "As long as they show evidence of getting 42 is one mark",
+}", "completion": "
+    marks: 1
+    feedback: "Well done, you got the answer right."
+    improvement: "You could have got the answer faster if you had read the question properly."
+"}
