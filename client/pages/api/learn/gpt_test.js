@@ -6,7 +6,7 @@ const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
     // Get the prompt from the request body
-    const prompt = req.body.prompt;
+    const prompt = req.body;
     console.log(prompt);
     const runPrompt = async () => {    
         const response = await openai.createCompletion({
