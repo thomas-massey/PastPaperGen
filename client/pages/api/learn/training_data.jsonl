@@ -1,9 +1,30 @@
 {"prompt": "{
-    answer: "The answer is 42.",
-    mark_scheme: "42",
-    additional_marking_context: "As long as they show evidence of getting 42 is one mark",
+    answer: "The strong force is the force that holds protons and neutrons together. It is repulsive at distances less than 0.5 fm. (It has a range up to 3fm) The electrostatic force is always attractive but only affects charged particles so only protons in the nucleus and has an infinite range. The strong force only affects hadrons, so both protons and neutrons. Since a (208/82)Pb nucleus is so dense the strong force must be repulsive as the nucleons are squished together, distance < 0.5 fm and since the electrostatic force only affects protons and has an infinite range, there must be less protons.",
+    mark_scheme: "Any 3 marking points from 1 to 5
+1Strong nuclear force (SNF) affects nucleons or protons and
+neutrons. 🗸
+2SNF attraction extends up to 3 fm (allow 1–4 fm) 🗸
+3The SNF is repulsive below about 0.8 fm (allow 0.3 to 1 fm
+and prevents the nucleus totally collapsing) 🗸
+4Electromagnetic/electrostatic repulsive force (only) acts
+between protons 🗸
+5EM forces are long range/infinite/acts across whole
+nucleus/acts on all protons(so increases as proton number
+increases) 🗸
+PLUS one of following that explains the imbalance
+More neutrons are needed to hold nucleus together / add to
+binding force/increase instability/reduce stability (owtte)
+Or
+Fewer protons are required so as to reduce the
+repulsion/reduce instability/increase stability (owtte) 🗸",
+    additional_marking_context: "Baryons/hadrons may replace nucleons.
+If ‘strong force’ rather than ‘strong nuclear
+force’ is used only penalise once.
+Any wrong statement made in the first group of
+marking points then this section has a
+maximum 2 marks out of 3.",
 }", "completion": "
-    marks: 1
-    feedback: "Well done, you got the answer right."
-    improvement: "You could have got the answer faster if you had read the question properly."
+    marks: 3
+    feedback: "A good primary understanding of the strong force, however the question itself was not fully answered."
+    improvement: "The strong force is the force that holds protons and neutrons together. It is repulsive at distances less than 0.5 fm. (It has a range up to 3fm) The electrostatic force is always attractive but only affects charged particles so only protons in the nucleus and has an infinite range. The strong force only affects hadrons, so both protons and neutrons. Since a (208/82)Pb nucleus is so dense the strong force must be repulsive as the nucleons are squished together, distance < 0.5 fm and since the electrostatic force only affects protons and has an infinite range, there must be less protons."
 "}
