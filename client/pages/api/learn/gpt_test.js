@@ -12,12 +12,8 @@ export default async function handler(req, res) {
     const gptResponse = await openai.createCompletion({
         model: 'davinci',
         prompt: prompt,
-        maxTokens: 100,
-        temperature: 0.9,
-        topP: 1,
-        presencePenalty: 0,
-        frequencyPenalty: 0,
-        bestOf: 1,
+        temperature: 0,
+        maxTokens: 300,
     })
     console.log("GPT Response: " + gptResponse.data.choices[0].text)
     // Send the answer back to the client
