@@ -9,7 +9,7 @@ function gpt_test() {
         <h1 className="text-4xl font-bold">GPT Test</h1>
         <Image src="/test_image.png" alt="test_image" width={500} height={500} />
         <div className="flex flex-row items-center justify-center py-4">
-            <textarea id="input" className="border-2 border-black rounded-lg" placeholder="Input" width={500} height={500}>Input</textarea>
+            <textarea id="input" className="border-2 border-black rounded-lg" placeholder="Input" width={1500} height={500} />
         </div>
         <div className="flex flex-row items-center justify-center py-4">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => {
