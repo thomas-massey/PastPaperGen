@@ -1,3 +1,4 @@
+import ListTopics from '@/components/learn/ListTopics';
 import React from 'react'
 
 export default function paper_generation() {
@@ -22,16 +23,9 @@ export default function paper_generation() {
                     Options
                 </h2>
             </div>
-            <div className="flex justify-center items-center h-16 bg-black text-white">
+            <div className="flex justify-center items-center  bg-black text-white">
                 <form>
-                    <input type="checkbox" id="as" name="as" value="as"/>
-                    <label for="AS">AS</label><br/>
-
-                    <input type="checkbox" id="a" name="a" value="a"/>
-                    <label for="A">A</label><br/>
-
-                    <input type="checkbox" id="mei" name="mei" value="mei"/>
-                    <label for="MEI">MEI</label><br/>
+                    <ListTopics />
                 </form>
             </div>
             <div className="flex justify-center items-center h-16 bg-black text-white">
