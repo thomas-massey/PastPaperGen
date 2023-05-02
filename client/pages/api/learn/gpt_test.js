@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     const input = req.body.input;
     // send input to GPT-3 API via npm package
     const ai_response = await openai.createCompletion({
-        model: "text-davinci-003",
+        model: "text-ada-001",
         prompt: input,
         temperature: 0,
         maxTokens: 15
