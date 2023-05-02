@@ -11,7 +11,9 @@ export default function Login() {
                 <h1 className='text-6xl font-semibold p-9'>
                     You are currently signed in as {session.user.email}.
                 </h1>
-                <button onClick={() => signOut()} className='p-4'>Sign out</button>
+            </div>
+            <div className='flex justify-center items-center'>
+                <button onClick={() => signOut()} className='p-4 text-6xl font-semibold'>Sign out</button>
             </div>
         )
     }
