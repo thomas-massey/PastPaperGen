@@ -34,8 +34,10 @@ function gpt_test() {
         </div>
         <div className="flex flex-row items-center justify-center py-4">
             <p id="marks"></p>
-            <p id="improvement"></p>
         </div>
+        <div className="flex flex-row items-center justify-center py-4">
+            <p id="improvement"></p>
+        <Image
     </div>
   )
 }
