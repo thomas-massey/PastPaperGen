@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     console.log("Prompt: " + prompt)
     // Generate the answer
     const gptResponse = await openai.createCompletion({
-        engine: 'davinci',
+        model: 'davinci',
         prompt: prompt,
         maxTokens: 100,
         temperature: 0.9,
