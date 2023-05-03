@@ -50,12 +50,13 @@ export default function paper_generation() {
                     </form>
                 </div>
             </div>
-
-            <div>
-                <h1 className="text-4xl font-semibold p-9">Here is your paper:</h1>
-            </div>
-            <div className="flex justify-center p-8">
-                <embed id="past_paper" src="" type="application/pdf"></embed>
+            <div className="clear-both">
+                <div>
+                    <h1 className="text-4xl font-semibold p-9">Here is your paper:</h1>
+                </div>
+                <div className="flex justify-center p-8">
+                    <embed id="past_paper" src="" type="application/pdf"></embed>
+                </div>
             </div>
         </div>
     );
