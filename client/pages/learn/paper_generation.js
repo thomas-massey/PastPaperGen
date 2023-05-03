@@ -11,7 +11,7 @@ export default function paper_generation() {
                 <h2 className="text-4xl font-semibold p-9">You have x tokens left.</h2>
             </div>
             <div className="float-left w-1/2">
-                <div className="flex justify-center items-center h-16 bg-gradient-to-r from-green-400 to-blue-500 text-white">
+                <div className="flex justify-center items-center h-32 bg-gradient-to-r from-green-400 to-blue-500 text-white">
                     <h2 className="text-4xl font-semibold p-9">Generate a paper</h2>
                 </div>
                 <div className="flex justify-center items-center h-16 bg-black text-white">
@@ -22,36 +22,46 @@ export default function paper_generation() {
                         <ListTopics />
                     </form>
                 </div>
-            </div>
-            <div>
-                <button
-                    className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-                    onClick={() => {
-                        // Generate paper
-                        const paper_url = "/papers/paper.pdf";
-                        // Insert the paper into the embed
-                        document.getElementById("past_paper").src = paper_url;
-                        // Set correct dimensions
-                        document.getElementById("past_paper").width = "800";
-                        document.getElementById("past_paper").height = "1000";
-                    }}
-                >
-                    Generate
-                </button>
+                <div className="flex justify-center items-center  bg-black text-white p-4">
+                    <button
+                        className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                        onClick={() => {
+                            document.getElementById("generate_output").classList.remove("hidden");
+                            // Scroll to the output
+                            document.getElementById("generate_output").scrollIntoView();
+                            // Generate paper
+                            const paper_url = "/papers/paper.pdf";
+                            // Insert the paper into the embed
+                            document.getElementById("past_paper").src = paper_url;
+                            // Set correct dimensions
+                            document.getElementById("past_paper").width = "800";
+                            document.getElementById("past_paper").height = "1000";
+                        }}
+                    >
+                        Generate
+                    </button>
+                </div>
             </div>
             <div className="float-right w-1/2">
-                <div className="flex justify-center items-center h-32 bg-gradient-to-r from-green-400 to-blue-500 text-white">
+                <div className="flex justify-center items-center h-32 bg-gradient-to-r from-blue-500 to-green-400 text-white">
                     <h2 className="text-4xl font-semibold p-9">Or enter a code!</h2>
+
+                </div>
+                <div>
                     <form>
-                        <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block appearance-none leading-normal" type="text" placeholder="Enter code here" />
-                        <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="button">
-                            Submit
-                        </button>
+                        <div className="flex justify-center items-center h-30 bg-black text-black p-4">
+                            <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block appearance-none leading-normal" type="text" placeholder="Enter code here" />
+                        </div>
+                        <div className="flex justify-center items-center h-60 bg-black text-white p-4">
+                            <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="button">
+                                Submit
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
             <div className="clear-both">
-                <div>
+                <div id="generate_output" className="flex justify-center items-center h-16 text-black hidden">
                     <h1 className="text-4xl font-semibold p-9">Here is your paper:</h1>
                 </div>
                 <div className="flex justify-center p-8">

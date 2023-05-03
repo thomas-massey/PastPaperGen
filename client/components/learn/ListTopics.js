@@ -6,7 +6,7 @@ export default function ListTopics() {
   const exam_boards = ["Edexcel", "AQA", "OCR"];
   const topics = ["Algebra", "Calculus", "Trigonometry", "Vectors", "Mechanics", "Statistics", "Probability", "Kinematics", "Dynamics", "Forces", "Waves", "Electricity", "Magnetism", "Electromagnetism", "Quantum Physics", "Particle Physics", "Thermodynamics", "Optics", "Light", "Sound", "Heat", "Energy", "Power", "Work", "Pressure", "Electricity", "Magnetism", "Electromagnetism", "Quantum Physics", "Particle Physics", "Thermodynamics", "Optics", "Light", "Sound", "Heat", "Energy", "Power", "Work", "Pressure", "Electricity", "Magnetism", "Electromagnetism", "Quantum Physics", "Particle Physics", "Thermodynamics", "Optics", "Light", "Sound", "Heat", "Energy", "Power", "Work", "Pressure", "Electricity", "Magnetism", "Electromagnetism", "Quantum Physics", "Particle Physics", "Thermodynamics", "Optics", "Light", "Sound", "Heat", "Energy", "Power", "Work", "Pressure"];
   return (
-    <div className="overflow-auto h-96">
+    <div className="overflow-auto h-96 w-96">
       {topics.map((topic) => (
         <div key={topic} className="flex items-center">
           <input type="checkbox" id={topic} name={topic} value={topic} />
