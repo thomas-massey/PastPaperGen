@@ -50,7 +50,8 @@ export default function paper_generation() {
                     </form>
                 </div>
             </div>
-            <div className="flex justify-center items-center h-16 bg-black text-white">
+
+            <div>
                 <h1 className="text-4xl font-semibold p-9">Here is your paper:</h1>
             </div>
             <div className="flex justify-center p-8">
