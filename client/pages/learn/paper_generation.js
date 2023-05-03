@@ -23,7 +23,7 @@ export default function paper_generation() {
                     </form>
                 </div>
             </div>
-            <div className="flex justify-center items-center h-16 bg-black text-white">
+            <div>
                 <button
                     className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                     onClick={() => {
@@ -40,7 +40,7 @@ export default function paper_generation() {
                 </button>
             </div>
             <div className="float-right w-1/2">
-                <div className="flex justify-center items-center h-16 bg-gradient-to-r from-green-400 to-blue-500 text-white">
+                <div className="flex justify-center items-center h-32 bg-gradient-to-r from-green-400 to-blue-500 text-white">
                     <h2 className="text-4xl font-semibold p-9">Or enter a code!</h2>
                     <form>
                         <input className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block appearance-none leading-normal" type="text" placeholder="Enter code here" />
