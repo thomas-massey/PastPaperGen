@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 export default function see(users) {
     console.log("Function: ", users)
+    console.log("Name: ", users.users[0].name)
     return (
         <div>
             <h1>See</h1>
