@@ -15,6 +15,7 @@ export default function add() {
     });
     const result = await response.json();
     console.log(result);
+    document.getElementById('result').innerHTML = "User added with name " + result.name + " and email " + result.email + " and avatar " + result.avatar;
   };
 
   return (
@@ -33,6 +34,7 @@ export default function add() {
         >
           Submit
         </button>
+        <p className="text-sm text-gray-500 mt-4" id="result"></p>
       </form>
     </div>
   );
