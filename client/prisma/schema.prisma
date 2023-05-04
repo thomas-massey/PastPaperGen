@@ -1,29 +1,29 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-generator client {
+generator client{
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id         String       @id @default(uuid())
-  email      String       @unique
-  name       String?
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @updatedAt
-  avatar     String?
-  Scoreboard Scoreboard[]
+model User{
+  id        String  @id @default(cuid()) @map("_id") @db.ObjectId
+  name      String
+  email     String  @unique
+  image     String?
+  hashedPassword String?
+  createdAt DateTime @default(now())
+  papers    Paper[]
 }
 
-// Scoreboard with score and uuid
-model Scoreboard {
-  id        String   @id @default(uuid())
-  score     Int
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
+model Paper{
+  id        String  @id @default(cuid()) @map("_id") @db.ObjectId
+  subject   String
+  file_url  String
+  markscheme_url String
+  marks     Int
+  authorId  String
+  author  User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
 }
