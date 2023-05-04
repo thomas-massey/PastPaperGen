@@ -2,8 +2,8 @@ import React from 'react'
 import { PrismaClient } from '@prisma/client'
 import Image from 'next/image'
 
-export default function see(users_obj) {
-    const users_array = users_obj.users
+export default function see(props) {
+    const users_array = props.users_obj.users
     return (
         <div>
             <h1>See</h1>
