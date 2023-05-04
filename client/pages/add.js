@@ -13,9 +13,13 @@ export default function add() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
-    const result = await response.json();
-    console.log(result);
-    document.getElementById('result').innerHTML = "User added with name " + result.name + " and email " + result.email + " and avatar " + result.avatar;
+    if (!response.ok) {
+        const result = await response.json();
+        console.log(result);
+        document.getElementById('result').innerHTML = "User added with name " + result.name + " and email " + result.email + " and avatar " + result.avatar;
+    } else {
+        document.getElementById('result').innerHTML = "Error: " + response.statusText;
+    }
   };
 
   return (
