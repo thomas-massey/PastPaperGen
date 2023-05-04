@@ -8,7 +8,7 @@ export default function see(users_obj) {
         <div>
             <h1>See</h1>
             <ul>
-                {Array.isArray(users_array) && users_array.map((user) => (
+                {users_array.map((user) => (
                     <li key={user.id}>
                         <Image
                             src={user.avatar}
