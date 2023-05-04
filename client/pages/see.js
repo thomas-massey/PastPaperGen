@@ -7,7 +7,7 @@ export default function see(users) {
         <div>
             <h1>See</h1>
             <ul>
-                {users.map((user) => (
+                {Array.isArray(users) && users.map((user) => (
                     <li key={user.id}>
                         <h2>{user.name}</h2>
                         <p>{user.email}</p>
@@ -22,6 +22,7 @@ export default function see(users) {
 export async function getServerSideProps() {
     const prisma = new PrismaClient();
     const users = await prisma.user.findMany();
+    console.log(users);
     return {
         props: {
             users,
