@@ -6,6 +6,9 @@ export default async function handler(req, res) {
     const name = req.body.name;
     const email = req.body.email;
     const avatar = req.body.avatar;
+    console.log("Name: " + name)
+    console.log("Email: " + email)
+    console.log("Avatar: " + avatar)
 
     const user = await prisma.user.create({
         data: {
@@ -14,6 +17,8 @@ export default async function handler(req, res) {
             avatar,
         },
     });
+
+    console.log(user);
 
     res.status(200).json(user);
 }
