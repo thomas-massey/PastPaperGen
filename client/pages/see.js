@@ -3,10 +3,6 @@ import { PrismaClient } from '@prisma/client'
 import Image from 'next/image'
 
 export default async function see() {
-    // Get all users from the database
-    const prisma = new PrismaClient()
-    const users = await prisma.user.findMany()
-    console.log(users)
     return (
         <div>
             <h1>See</h1>
@@ -21,4 +17,14 @@ export default async function see() {
             </ul>
         </div>
     )
+}
+
+export async function getServersideProps() {
+    const prisma = new PrismaClient();
+    const users = await prisma.user.findMany();
+    return {
+        props: {
+            users,
+        },
+    };
 }
