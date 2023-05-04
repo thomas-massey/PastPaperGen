@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 import Image from 'next/image'
 
 export default function see(users_obj) {
-    users_array = users_obj.users
+    const users_array = users_obj.users
     return (
         <div>
             <h1>See</h1>
