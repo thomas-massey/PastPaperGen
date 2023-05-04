@@ -2,18 +2,22 @@ import React from 'react'
 import { PrismaClient } from '@prisma/client'
 import Image from 'next/image'
 
-export default function see(users) {
-    console.log("Function: ", users)
-    console.log("Name: ", users.users[0].name)
+export default function see(users_obj) {
+    users_array = users_obj.users
     return (
         <div>
             <h1>See</h1>
             <ul>
-                {Array.isArray(users) && users.map((user) => (
+                {Array.isArray(users_array) && users_array.map((user) => (
                     <li key={user.id}>
-                        <h2>{user.name}</h2>
+                        <Image
+                            src={user.avatar}
+                            alt="Picture of the author"
+                            width={500}
+                            height={500}
+                        />
+                        <p>{user.name}</p>
                         <p>{user.email}</p>
-                        <Image src={user.avatar} alt={user.name} />
                     </li>
                 ))}
             </ul>
@@ -23,10 +27,10 @@ export default function see(users) {
 
 export async function getServerSideProps() {
     const prisma = new PrismaClient();
-    const users = await prisma.user.findMany();
+    const users_obj = await prisma.user.findMany();
     return {
         props: {
-            users,
+            users_obj,
         },
     };
 }
