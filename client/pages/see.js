@@ -2,7 +2,7 @@ import React from 'react'
 import { PrismaClient } from '@prisma/client'
 import Image from 'next/image'
 
-export default function see() {
+export default function see(users) {
     return (
         <div>
             <h1>See</h1>
