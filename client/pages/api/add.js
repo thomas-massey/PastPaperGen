@@ -3,10 +3,9 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-    const { name, email, avatar } = req.body;
-    console.log("Name : ", name);
-    console.log("Email : ", email);
-    console.log("Avatar : ", avatar);
+    const name = req.body.name;
+    const email = req.body.email;
+    const avatar = req.body.avatar;
 
     const user = await prisma.user.create({
         data: {
