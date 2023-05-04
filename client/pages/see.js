@@ -6,18 +6,24 @@ export default function see(props) {
     const users_array = props.users
     return (
         <div>
-            <h1>See</h1>
+            <h1 className="text-4xl text-center font-bold mb-8">
+                Users
+            </h1>
             <ul>
                 {users_array.map((user) => (
                     <li key={user.id}>
+                        <p className="text-2xl font-bold">
+                            {user.name}
+                        </p>
+                        <p className="text-xl">
+                            {user.email}
+                        </p>
                         <Image
                             src={user.avatar}
                             alt="Picture of the author"
-                            width={500}
-                            height={500}
+                            width={100}
+                            height={100}
                         />
-                        <p>{user.name}</p>
-                        <p>{user.email}</p>
                     </li>
                 ))}
             </ul>
