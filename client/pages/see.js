@@ -19,7 +19,7 @@ export default async function see() {
     )
 }
 
-export async function getServersideProps() {
+export async function getServerSideProps() {
     const prisma = new PrismaClient();
     const users = await prisma.user.findMany();
     return {
