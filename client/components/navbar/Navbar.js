@@ -7,7 +7,7 @@ export default function Navbar() {
     return (
         <div>
             <div className="flex justify-between items-center bg-black">
-                <h1>
+                <h1 className="text-center font-bold mb-8 text-white">
                     This site is still under development ⚒️. Please check back later for updates as we are soon to roll out of beta!
                 </h1>
             </div>
