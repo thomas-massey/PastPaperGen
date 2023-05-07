@@ -1,7 +1,7 @@
 // Determine what type of data is linked to the simple_id
 
 import prismadb from '@/app/libs/prismadb';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default async function Page({ params }) {
     const router = useRouter();
