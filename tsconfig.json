@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/simple_id/[simple_id]/route_disabled.ts_disabled"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/simple_id/[simple_id]/route_disabled.ts_disabled", "app/components/inputs/SimpleIdInput.tsx_disabled"],
   "exclude": ["node_modules"]
 }
