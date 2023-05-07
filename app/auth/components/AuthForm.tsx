@@ -9,7 +9,7 @@ import { BsGithub, BsGoogle } from 'react-icons/bs'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { signIn, useSession } from 'next-auth/react'
-import { useRouter, NextRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 type Varient = 'LOGIN' | 'REGISTER'
 
@@ -23,7 +23,7 @@ const AuthForm = () => {
         if (session?.status === 'authenticated') {
             router.push('/users')
         }
-    }, [session?.status, router])
+    }, [session?.status])
 
     const toggle = () => {
         if (varient === 'LOGIN') {
