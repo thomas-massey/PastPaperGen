@@ -9,7 +9,7 @@ import { BsGithub, BsGoogle } from 'react-icons/bs'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { signIn, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, NextRouter } from 'next/router'
 
 type Varient = 'LOGIN' | 'REGISTER'
 
