@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  type String
+  provider String
+  providerAccountId String
+  refresh_token String? @db.String
+  access_token String? @db.String
+  expires_at Int?
+  token_type String?
+  scope String?
+  id_token String? @db.String
+  session_state String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model User {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId        String   @unique
+  name            String?
+  email           String   @unique
+  emailVerified   DateTime?
+  image           String?
+  role            String   @default("USER")
+  tier            String   @default("FREE")
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  papers          Paper[]
+  accounts        Account[]
+  issues         Issue[]
+  comments       Comment[]
+}
+
+
+model Paper {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId        String   @unique
+  title           String?
+  description     String?
+  questionUrl     String
+  markSchemeUrl   String
+  author          User      @relation(fields: [authorId], references: [id])
+  authorId        String    @db.ObjectId
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  questions       Question[]
+
+  @@unique([questionUrl, markSchemeUrl])
+}
+
+model Question {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  paperId       String @db.ObjectId
+  simpleId      String @unique
+  questionUrl   String
+  markSchemeUrl String
+  subject       String @db.String
+  marks         Int
+  difficulty    String
+  paper         Paper  @relation(fields: [paperId], references: [id], onDelete: Cascade)
+
+  @@unique([questionUrl, markSchemeUrl])
+}
+
+model Issue {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId    String   @unique
+  title       String
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    String   @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  comments    Comment[]
+}
+
+model Comment {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  issueId     String   @db.ObjectId
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    String   @db.ObjectId
+  content     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  issue       Issue    @relation(fields: [issueId], references: [id])
+}
+
+model Scoreboard {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String   @db.ObjectId
+  paperScore Int
+  verseScore Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique(userId)
+}
