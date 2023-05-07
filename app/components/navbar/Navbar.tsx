@@ -8,10 +8,6 @@ import { useRouter } from 'next/navigation'
 const Navbar = () => {
   const session = useSession()
   const router = useRouter()
-  let image_url = session?.data?.user?.image
-  if (session?.data?.user?.image == null) {
-    image_url = '/images/default_profile_picture.png'
-  }
   return (
     <>
       <nav className="flex justify-between items-center py-4 px-10 bg-gray-300 text-black">
@@ -46,7 +42,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/profile">
-                  <Image src={image_url} width={50} height={50} alt="Profile Picture" />
+                  <Image src={session?.data?.user?.image ?? '/images/default_profile_picture.png'} width={50} height={50} alt="Profile Picture" />
                 </Link>
               </li>
             </>
