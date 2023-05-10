@@ -42,11 +42,11 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/profile">
-                  {session.data.user.image && (
+                  {session?.data?.user?.image && (
                     <Image src={session.data.user.image} width={50} height={50} alt="Profile Picture" />
                   )}
-                  {!session.data.user.image && (
-                    <Image src="/images/default_profile.png" width={50} height={50} alt="Profile Picture" />
+                  {!session?.data?.user?.image && (
+                    <Image src="/images/default_profile_picture.png" width={50} height={50} alt="Profile Picture" />
                   )}
                 </Link>
               </li>
