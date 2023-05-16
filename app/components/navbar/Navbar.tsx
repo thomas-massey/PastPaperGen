@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
@@ -36,9 +36,9 @@ const Navbar = () => {
           {session.data && (
             <>
               <li>
-                <Link href="/auth">
-                  <div className="font-medium cursor-pointer">Logout</div>
-                </Link>
+                <button>
+                  <div className="font-medium cursor-pointer" onClick={() => signOut()}>Logout</div>
+                </button>
               </li>
               <li>
                 <Link href="/profile">

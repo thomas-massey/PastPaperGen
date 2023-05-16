@@ -34,50 +34,49 @@ export async function POST(
         // e.g. 24B0-4F0C-8F0D-4F0E
 
         let validSimpleId = false;
-        let simpleId: string = "";
+        let simpleId: string = "123456789abcdef";
 
-        while (!validSimpleId) {
-            simpleId = generateSimpleId();
-            console.log(simpleId, "SIMPLE_ID");
-            const user = await prismadb.user.findUnique({
-                where: {
-                    simpleId,
-                },
-            });
-            if (!user) {
-                validSimpleId = true;
-            }
-            const paper = await prismadb.paper.findUnique({
-                where: {
-                    simpleId,
-                },
-            });
-            if (!paper) {
-                validSimpleId = true;
-            }
-            const question = await prismadb.question.findUnique({
-                where: {
-                    simpleId,
-                },
-            });
-            if (!question) {
-                validSimpleId = true;
-            }
-            const issue = await prismadb.issue.findUnique({
-                where: {
-                    simpleId,
-                },
-            });
-            if (!issue) {
-                validSimpleId = true;
-            }
-        }
+        // while (!validSimpleId) {
+        //     simpleId = generateSimpleId();
+        //     console.log(simpleId, "SIMPLE_ID");
+        //     const user = await prismadb.user.findUnique({
+        //         where: {
+        //             simpleId,
+        //         },
+        //     });
+        //     if (!user) {
+        //         validSimpleId = true;
+        //     }
+        //     const paper = await prismadb.paper.findUnique({
+        //         where: {
+        //             simpleId,
+        //         },
+        //     });
+        //     if (!paper) {
+        //         validSimpleId = true;
+        //     }
+        //     const question = await prismadb.question.findUnique({
+        //         where: {
+        //             simpleId,
+        //         },
+        //     });
+        //     if (!question) {
+        //         validSimpleId = true;
+        //     }
+        //     const issue = await prismadb.issue.findUnique({
+        //         where: {
+        //             simpleId,
+        //         },
+        //     });
+        //     if (!issue) {
+        //         validSimpleId = true;
+        //     }
+        // }
 
         console.log(simpleId, "SIMPLE_ID_FINAL");
 
         const user = await prismadb.user.create({
             data: {
-                simpleId,
                 email,
                 name,
                 hashedPassword,
