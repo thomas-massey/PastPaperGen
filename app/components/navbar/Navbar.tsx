@@ -17,6 +17,11 @@ const Navbar = () => {
 
         <ul className="flex justify-end items-center space-x-8">
           <li>
+            <Link href="/">
+              <div className="font-medium cursor-pointer">Home</div>
+            </Link>
+          </li>
+          <li>
             <Link href="/about">
               <div className="font-medium cursor-pointer">About</div>
             </Link>
