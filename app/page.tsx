@@ -1,9 +1,9 @@
-import client from './libs/prismadb';
+import prismadb from '@/app/libs/prismadb';
 
 const home = async () => {
-    const numberOfUsers = (await client.user.findMany({ where: { role: "USER" } })).length;
-    const numberOfPapersGenerated = (await client.paper.findMany()).length;
-    const numberOfQuestions = (await client.question.findMany()).length;
+    const numberOfUsers = await prismadb.user.count();
+    const numberOfPapersGenerated = await prismadb.paper.count();
+    const numberOfQuestions = await prismadb.question.count();
     return (
         <div>
             <h1 className="text-4xl font-bold text-center text-gray-800">
