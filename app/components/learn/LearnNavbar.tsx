@@ -7,9 +7,9 @@ const LearnNavbar = () => {
                 <div className="flex items-center justify-center h-16">
                     <div className="flex items-center space-x-4">
                         <div className="rounded-md bg-gray-800 px-3 py-2">
-                            <Link href="/">
+                            <Link href="/learn">
                                 <div className="text-sm font-medium text-white focus:outline-none focus:text-white">
-                                    Home
+                                    Learn
                                 </div>
                             </Link>
                         </div>

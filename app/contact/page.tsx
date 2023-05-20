@@ -1,7 +1,6 @@
 "use client"
 
 import axios from "axios";
-import { error } from "console";
 import { toast } from "react-hot-toast";
 
 const contact = () => {
