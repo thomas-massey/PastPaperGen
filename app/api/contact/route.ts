@@ -20,7 +20,16 @@ export async function POST(
         return new NextResponse('Body is required', { status: 400});
     }
 
-    // TODO: Send email to admin
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+        to: 'thomas.a.massey@outlook.com',
+        from: body.email,
+        subject: `Contact Form Submission from ${body.name}`,
+        text: body.message,
+        html: `<p>${body.message}</p>`,
+    }
+    sgMail.send(msg);
 
     return new NextResponse('OK', { status: 200});
 }
