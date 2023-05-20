@@ -12,7 +12,8 @@ const issue_tracker = () => {
                 Found a bug or have a suggestion for how we can improve? Let us know
             </p>
             <div className="text-center text-gray-600 mt-4">
-                <MostRecent />
+                {/* <MostRecent /> */}
+                {/* TODO: Add the recent issues component here */}
             </div>
         </div>
     );

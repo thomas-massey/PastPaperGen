@@ -1,8 +1,8 @@
+import prismadb from '@/app/libs/prismadb'
 import React from 'react'
-import prismadb from '@/app/libs/prismadb';
 
 async function MostRecent() {
-    // Get the top 5 most recent issues
+
     let mostRecentIssues = await prismadb.issue.findMany({
         take: 1,
         orderBy: {

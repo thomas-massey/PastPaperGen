@@ -43,8 +43,10 @@ model User {
   updatedAt       DateTime @updatedAt
   papers          Paper[]
   accounts        Account[]
-  issues         Issue[]
-  comments       Comment[]
+  issues          Issue[]
+  lastIssue       DateTime?
+  comments        Comment[]
+  lastComment     DateTime?
 }
 
 

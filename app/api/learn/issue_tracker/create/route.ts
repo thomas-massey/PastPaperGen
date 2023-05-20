@@ -22,6 +22,7 @@ export async function POST(
         if (subject == "Please select a subject") {
             return new NextResponse('Subject is required', { status: 400});
         }
+        // TODO: If author has created a issue in the last x minutes, return error (on the user table of the db)
 
         const issueTracker = await prismadb.issue.create({
             data: {
