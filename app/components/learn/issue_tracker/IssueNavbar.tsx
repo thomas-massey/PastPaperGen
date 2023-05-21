@@ -3,7 +3,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-export default async function IssueTrackerNavbar () {
+export default function IssueTrackerNavbar () {
   const router = useRouter();
   return (
     <nav className="bg-gray-900">
