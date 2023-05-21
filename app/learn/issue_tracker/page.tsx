@@ -23,7 +23,7 @@ const issue_tracker = async () => {
                 <h1 className="text-2xl font-bold text-gray-800">Most Recent</h1>
                 {most_recent_issues.map((issue) => (
                     // Put within a card
-                    <Link href={`/learn/issue_tracker/${issue.simpleId}`}>
+                    <Link href={`/learn/issue_tracker/track/${issue.simpleId}`}>
                         <div className="bg-blue-200 shadow overflow-hidden sm:rounded-lg mt-4 w-1/2 mx-auto">
                             <div key={issue.id}>
                                 <h1 className="text-xl font-bold text-gray-800">{issue.title}</h1>
