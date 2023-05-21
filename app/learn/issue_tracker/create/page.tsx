@@ -3,8 +3,10 @@ import Head from 'next/head';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const IssueTracker = () => {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -34,6 +36,7 @@ const IssueTracker = () => {
                   subject
                 }).then(() => {
                   toast.success("Issue created!");
+                  router.push("/learn/issue_tracker");
                 }).catch(
                   (error) => {
                     console.log(error)
