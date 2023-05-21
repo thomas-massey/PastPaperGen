@@ -6,6 +6,15 @@ const issue = async ({ params }: any) => {
             simpleId: params.id
         }
     })
+    if (!issue) {
+        return (
+            <div>
+                <h1 className="text-4xl font-bold text-center text-gray-800">
+                    Issue not found or no longer exists
+                </h1>
+            </div>
+        )
+    }
     return (
         <div>
             <h1 className="text-4xl font-bold text-center text-gray-800">
