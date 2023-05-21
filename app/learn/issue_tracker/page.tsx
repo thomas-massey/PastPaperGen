@@ -1,5 +1,4 @@
 import IssueTrackerNavbar from "@/app/components/learn/issue_tracker/IssueNavbar";
-import MostRecent from "@/app/components/learn/issue_tracker/MostRecent";
 import prismadb from "@/app/libs/prismadb";
 import Link from "next/link";
 
@@ -44,8 +43,8 @@ const issue_tracker = async () => {
                 {most_recent_issues.map((issue) => (
                     // Put within a card
                     <Link href={`/learn/issue_tracker/track/${issue.simpleId}`}>
-                        <div className="bg-blue-200 shadow overflow-hidden sm:rounded-lg mt-4 w-1/2 mx-auto">
-                            <div key={issue.id}>
+                        <div key={issue.id}>
+                            <div className="bg-blue-200 shadow overflow-hidden sm:rounded-lg mt-4 w-1/2 mx-auto">
                                 <h1 className="text-xl font-bold text-gray-800">{issue.title}</h1>
                                 <p className="text-gray-600">{issue.description}</p>
                                 <p className="text-gray-600">{issue.subject}</p>
