@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-type Varient = "QUESTION" | "OTHER"
+type Varient = "QUESTION" | "ISSUE"
 
 const IssueTracker = () => {
   const router = useRouter();
@@ -29,8 +29,8 @@ const IssueTracker = () => {
                   Create/Upload Question
                 </button>
                 <button
-                  onClick={() => setVarient("OTHER")}
-                  className={`inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white ${varient === "OTHER" ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-300 hover:bg-gray-400"}`}
+                  onClick={() => setVarient("ISSUE")}
+                  className={`inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white ${varient === "ISSUE" ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-300 hover:bg-gray-400"}`}
                 >
                   Open Issue
                 </button>
@@ -187,7 +187,7 @@ const IssueTracker = () => {
         </div>
       )}
       {/* The form to open a new issue */}
-      {varient === "OTHER" && (
+      {varient === "ISSUE" && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-12">
             <h1 className="text-3xl font-bold mb-6">Issue Tracker</h1>
@@ -207,6 +207,7 @@ const IssueTracker = () => {
                   const description = data.get("description") as string;
                   const subject = data.get("subject") as string;
                   axios.post("/api/learn/issue_tracker/create", {
+                    varient,
                     title,
                     description,
                     subject
