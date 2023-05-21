@@ -28,10 +28,10 @@ const issue_tracker = async () => {
         },
         skip: skip
     })
-
+    console.log("Simple ID origin: " + issue_id[0].simpleId.toString());
     return (
         <div>
-            <IssueTrackerNavbar feel_lucky={issue_id[0]} />
+            <IssueTrackerNavbar />
             <h1 className="text-4xl font-bold text-center text-gray-800">
                 Issue Tracker
             </h1>
