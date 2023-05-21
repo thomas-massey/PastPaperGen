@@ -1,6 +1,8 @@
 import prismadb from '@/app/libs/prismadb';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const revalidate = 10;
+
 export async function GET() {
     try {
         // Get the number of issues in the database
