@@ -10,9 +10,29 @@ const issue_tracker = async () => {
             createdAt: 'desc'
         }
     })
+
+    // Create, track, feel_lucky as links to the respective pages
+    const number_of_not_closed_issues = await prismadb.issue.count({
+        where: {
+            status: {
+                not: 'CLOSED'
+            }
+        }
+    })
+    const skip = Math.floor(Math.random() * number_of_not_closed_issues)
+    const issue_id = await prismadb.issue.findMany({
+        take: 1,
+        where: {
+            status: {
+                not: 'CLOSED'
+            }
+        },
+        skip: skip
+    })
+
     return (
         <div>
-            <IssueTrackerNavbar />
+            <IssueTrackerNavbar feel_lucky={issue_id[0]} />
             <h1 className="text-4xl font-bold text-center text-gray-800">
                 Issue Tracker
             </h1>
