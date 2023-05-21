@@ -2,6 +2,8 @@ import IssueTrackerNavbar from "@/app/components/learn/issue_tracker/IssueNavbar
 import prismadb from "@/app/libs/prismadb";
 import Link from "next/link";
 
+export const revalidate = 10;
+
 const issue_tracker = async () => {
     const most_recent_issues = await prismadb.issue.findMany({
         take: 3,
