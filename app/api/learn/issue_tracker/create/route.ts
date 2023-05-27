@@ -1,13 +1,15 @@
 import prismadb from '@/app/libs/prismadb';
 import { NextRequest, NextResponse } from 'next/server';
 import generateSimpleId from '@/app/libs/generateSimpleID';
+// import supabase from '@/app/libs/supabase';
 
 export async function POST(
     request: Request,
 ) {
     try {
         const body = await request.json();
-        const mode = body.mode || null;
+        const mode = body.varient || null;
+        console.log(mode, "Mode");
         if (mode == "ISSUE") {
             const {
                 title,
@@ -47,6 +49,14 @@ export async function POST(
                 level,
                 question_file,
                 mark_scheme_file
+            }: {
+                title: string,
+                description: string,
+                subject: string,
+                exam_board: string,
+                level: string,
+                question_file: File,
+                mark_scheme_file: File
             } = body;
 
             if (!title) {
@@ -58,7 +68,22 @@ export async function POST(
             if (subject == "Please select a subject") {
                 return new NextResponse('Subject is required', { status: 400 });
             }
-            // Save file to bucket
+
+            const issueTracker = await prismadb.issue.create({
+                data: {
+                    title: title,
+                    description: description,
+                    subject: subject,
+                    simpleId: generateSimpleId() || "00000000000000",
+                    authorId: "6466a54855928f83f4a978d7",
+                }
+            });
+
+            // Save files to bucket
+            // supabase.storage.from(process.env.DEPLOYMENT_TYPE || "").upload(`resources/question_files/${question_file.name}`, question_file);
+            // supabase.storage.from(process.env.DEPLOYMENT_TYPE || "").upload(`resources/mark_scheme_files/${mark_scheme_file.name}`, mark_scheme_file);
+
+            return new NextResponse("Question tracker created successfully", { status: 200 });
         }
     } catch (error) {
         console.log(error, "Issue tracker create route error");

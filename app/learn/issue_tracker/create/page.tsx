@@ -56,12 +56,21 @@ const IssueTracker = () => {
                   const form = e.target as HTMLFormElement;
                   const data = new FormData(form);
                   const title = data.get("title") as string;
-                  const questionID = data.get("questionID") as string;
                   const description = data.get("description") as string;
-                  axios.post("/api/learn/question/create", {
+                  const subject = data.get("subject") as string;
+                  const examBoard = data.get("examBoard") as string;
+                  const level = data.get("level") as string;
+                  const questionFile = data.get("questionFile") as File;
+                  const markSchemeFile = data.get("markSchemeFile") as File;
+                  axios.post("/api/learn/issue_tracker/create", {
+                    varient,
                     title,
-                    questionID,
-                    description
+                    description,
+                    subject,
+                    examBoard,
+                    level,
+                    questionFile,
+                    markSchemeFile
                   }).then(() => {
                     toast.success("Question created!");
                     router.push("/learn/question");
@@ -206,6 +215,10 @@ const IssueTracker = () => {
                   const title = data.get("title") as string;
                   const description = data.get("description") as string;
                   const subject = data.get("subject") as string;
+                  console.log("Title: " + title);
+                  console.log("Description: " + description);
+                  console.log("Subject: " + subject);
+                  console.log("Varient: " + varient);
                   axios.post("/api/learn/issue_tracker/create", {
                     varient,
                     title,
