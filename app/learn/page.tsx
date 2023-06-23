@@ -1,35 +1,12 @@
-import LearnNavbar from "../components/learn/LearnNavbar";
+import LearnNavbar from "@/components/Navbar/LearnNavbar";
 
 const learn = () => {
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center">
             <LearnNavbar />
-            <h1 className="text-4xl font-bold text-center text-gray-800">
-                Learn
-            </h1>
-            <p className="text-center text-gray-600">
-                This is the learn page, where you can learn about the different topics we have to offer
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum ut tristique et egestas. Orci ac auctor augue mauris augue neque gravida in. Molestie at elementum eu facilisis sed odio morbi. Nec nam aliquam sem et. Dis parturient montes nascetur ridiculus mus mauris vitae. Fermentum odio eu feugiat pretium. Maecenas ultricies mi eget mauris pharetra et ultrices neque. Tortor posuere ac ut consequat semper. Faucibus et molestie ac feugiat. Vitae semper quis lectus nulla at. Interdum varius sit amet mattis vulputate enim nulla aliquet porttitor. Odio ut enim blandit volutpat maecenas volutpat blandit. Ac turpis egestas maecenas pharetra convallis posuere morbi leo. Eu augue ut lectus arcu bibendum at varius vel. Mi tempus imperdiet nulla malesuada pellentesque elit eget. Facilisis volutpat est velit egestas dui. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et.
-
-Id eu nisl nunc mi. Non nisi est sit amet facilisis magna etiam. Turpis nunc eget lorem dolor. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Lobortis elementum nibh tellus molestie nunc non. Quam elementum pulvinar etiam non quam. Enim ut tellus elementum sagittis vitae et. Tempor orci dapibus ultrices in iaculis nunc. Id diam vel quam elementum pulvinar etiam non quam. Odio euismod lacinia at quis risus. At risus viverra adipiscing at in tellus integer feugiat scelerisque.
-
-Lorem sed risus ultricies tristique nulla aliquet enim. Metus dictum at tempor commodo ullamcorper a lacus vestibulum sed. Enim ut sem viverra aliquet eget sit amet tellus. Dignissim suspendisse in est ante in. Tellus id interdum velit laoreet id. Aliquet eget sit amet tellus. Id diam vel quam elementum pulvinar. Dolor sit amet consectetur adipiscing elit. Mauris nunc congue nisi vitae suscipit tellus. Amet volutpat consequat mauris nunc. Ultricies leo integer malesuada nunc. Aliquet lectus proin nibh nisl. Et tortor at risus viverra adipiscing at in. Maecenas volutpat blandit aliquam etiam erat velit. Ultrices sagittis orci a scelerisque purus semper eget duis. Metus dictum at tempor commodo ullamcorper a. Pulvinar sapien et ligula ullamcorper.
-
-Facilisis magna etiam tempor orci eu lobortis. In iaculis nunc sed augue lacus viverra vitae. Sed faucibus turpis in eu. Sit amet est placerat in egestas erat. In nibh mauris cursus mattis molestie a. Malesuada bibendum arcu vitae elementum. Vitae turpis massa sed elementum tempus egestas sed sed. Scelerisque varius morbi enim nunc faucibus a pellentesque sit. Diam donec adipiscing tristique risus. Vulputate mi sit amet mauris commodo quis imperdiet. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Elementum integer enim neque volutpat ac. Nibh tortor id aliquet lectus proin nibh nisl.
-
-Metus dictum at tempor commodo ullamcorper a lacus. Dui sapien eget mi proin sed libero enim. Ultrices dui sapien eget mi proin sed libero. Nunc sed id semper risus in. Laoreet non curabitur gravida arcu ac tortor dignissim. Turpis egestas pretium aenean pharetra magna ac. Mi proin sed libero enim sed faucibus turpis in eu. Sagittis aliquam malesuada bibendum arcu. Vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Est lorem ipsum dolor sit. Aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin. Habitant morbi tristique senectus et netus. Metus aliquam eleifend mi in nulla posuere sollicitudin. Pulvinar sapien et ligula ullamcorper. Justo eget magna fermentum iaculis eu non diam phasellus. Id volutpat lacus laoreet non curabitur gravida.
-
-Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique senectus. Sit amet porttitor eget dolor morbi non arcu. Nullam vehicula ipsum a arcu cursus. Pellentesque habitant morbi tristique senectus. A pellentesque sit amet porttitor eget dolor morbi non arcu. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Viverra vitae congue eu consequat ac. Felis donec et odio pellentesque. Fringilla ut morbi tincidunt augue. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi. Integer malesuada nunc vel risus. Purus sit amet luctus venenatis lectus magna.
-
-Augue mauris augue neque gravida in fermentum et. Risus ultricies tristique nulla aliquet enim. Tellus in hac habitasse platea dictumst vestibulum rhoncus. Donec ultrices tincidunt arcu non sodales neque. Vitae et leo duis ut diam quam nulla. Nulla facilisi etiam dignissim diam quis. Non diam phasellus vestibulum lorem. A lacus vestibulum sed arcu non odio euismod lacinia. Enim tortor at auctor urna nunc id cursus. Ipsum nunc aliquet bibendum enim facilisis gravida. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Sed risus pretium quam vulputate dignissim suspendisse in est. Adipiscing tristique risus nec feugiat in. Lacinia quis vel eros donec ac odio. A cras semper auctor neque vitae.
-
-Consequat ac felis donec et odio. Id ornare arcu odio ut sem nulla. Libero enim sed faucibus turpis in eu mi bibendum neque. Dui faucibus in ornare quam viverra. Amet tellus cras adipiscing enim eu. Facilisis magna etiam tempor orci eu lobortis. Sodales neque sodales ut etiam sit. Natoque penatibus et magnis dis. Vitae aliquet nec ullamcorper sit amet risus nullam. In ornare quam viverra orci sagittis eu volutpat. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Odio morbi quis commodo odio aenean sed adipiscing diam. Nisl tincidunt eget nullam non nisi est sit amet. Et egestas quis ipsum suspendisse. Dictumst vestibulum rhoncus est pellentesque. Nisi scelerisque eu ultrices vitae. Sit amet cursus sit amet dictum sit amet. Nec nam aliquam sem et tortor consequat id.
-
-Maecenas ultricies mi eget mauris. Egestas erat imperdiet sed euismod nisi. Ut pharetra sit amet aliquam id diam. Tristique senectus et netus et malesuada fames. Bibendum arcu vitae elementum curabitur vitae. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Ut lectus arcu bibendum at varius vel pharetra. Mattis enim ut tellus elementum sagittis vitae. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Praesent semper feugiat nibh sed. Porttitor rhoncus dolor purus non enim praesent elementum.
-
-Sed arcu non odio euismod lacinia at quis risus. Ut etiam sit amet nisl. Lorem dolor sed viverra ipsum nunc. Ultricies tristique nulla aliquet enim tortor at auctor urna nunc. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Morbi quis commodo odio aenean sed adipiscing diam. Magna fringilla urna porttitor rhoncus. Non consectetur a erat nam at. Gravida cum sociis natoque penatibus et magnis dis parturient montes. Vitae nunc sed velit dignissim sodales ut eu sem. Nec feugiat nisl pretium fusce id.
-            </p>
+            <h1>Learn</h1>
+            <h2>This is a page that will be used to learn new things</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro laborum sunt sapiente aut sed voluptates. Accusantium ipsam magnam quia quod? Sunt commodi perferendis amet, deserunt perspiciatis accusantium dolor sapiente assumenda.</p>
         </div>
     );
 }

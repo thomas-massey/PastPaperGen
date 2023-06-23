@@ -1,12 +1,8 @@
 import bcrypt from 'bcrypt';
 
-import prismadb from '@/app/libs/prismadb';
+import prismadb from '@/lib/prismadb';
 import { NextRequest, NextResponse } from 'next/server';
-
-function generateSimpleId() {
-    const simpleId: string = Math.random().toString(16).substr(2, 16);
-    return simpleId;
-}
+import generateSimpleId from '@/lib/generateSimpleID';
 
 export async function POST(
     request: Request,
@@ -17,6 +13,10 @@ export async function POST(
             email,
             name,
             password
+        }: {
+            email: string;
+            name: string;
+            password: string;
         } = body;
 
         if (!email) {
@@ -31,56 +31,17 @@ export async function POST(
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
-        // e.g. 24B0-4F0C-8F0D-4F0E
+        const simpleId = generateSimpleId();
 
-        let validSimpleId = false;
-        let simpleId: string = "123456789abcdef";
-
-        // while (!validSimpleId) {
-        //     simpleId = generateSimpleId();
-        //     console.log(simpleId, "SIMPLE_ID");
-        //     const user = await prismadb.user.findUnique({
-        //         where: {
-        //             simpleId,
-        //         },
-        //     });
-        //     if (!user) {
-        //         validSimpleId = true;
-        //     }
-        //     const paper = await prismadb.paper.findUnique({
-        //         where: {
-        //             simpleId,
-        //         },
-        //     });
-        //     if (!paper) {
-        //         validSimpleId = true;
-        //     }
-        //     const question = await prismadb.question.findUnique({
-        //         where: {
-        //             simpleId,
-        //         },
-        //     });
-        //     if (!question) {
-        //         validSimpleId = true;
-        //     }
-        //     const issue = await prismadb.issue.findUnique({
-        //         where: {
-        //             simpleId,
-        //         },
-        //     });
-        //     if (!issue) {
-        //         validSimpleId = true;
-        //     }
-        // }
-
-        console.log(simpleId, "SIMPLE_ID_FINAL");
+        console.log(simpleId, "SIMPLE_ID");
 
         const user = await prismadb.user.create({
             data: {
                 email,
                 name,
                 hashedPassword,
-            },
+                simpleId,
+            }
         });
 
         return NextResponse.json(user);

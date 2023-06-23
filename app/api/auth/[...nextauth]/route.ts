@@ -4,8 +4,8 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-
-import prismadb from '@/app/libs/prismadb';
+import prismadb from '@/lib/prismadb'
+import generateSimpleId from '@/lib/generateSimpleID';
 
 const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prismadb),
@@ -54,8 +54,19 @@ const authOptions: AuthOptions = {
         strategy: 'jwt',
     },
     secret: process.env.NEXTAUTH_SECRET,
+    events: {
+        // Add a simpleId to the newly created user
+        async createUser(session){
+            console.log("Session is: ", session);
+            const user_email = session?.user?.email as string;
+            await prismadb.user.update({
+                where: { email: user_email },
+                data: { simpleId: generateSimpleId() },
+            });
+        }
+    }
 };
 
 const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST, authOptions };

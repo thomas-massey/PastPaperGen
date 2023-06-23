@@ -11,107 +11,119 @@ datasource db {
 }
 
 model Account {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  userId String @db.ObjectId
-  type String
-  provider String
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
   providerAccountId String
-  refresh_token String? @db.String
-  access_token String? @db.String
-  expires_at Int?
-  token_type String?
-  scope String?
-  id_token String? @db.String
-  session_state String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id])
 
   @@unique([provider, providerAccountId])
 }
 
 model User {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  // simpleId        String   @unique
-  name            String?
-  email           String   @unique
-  emailVerified   DateTime?
-  image           String?
-  role            String   @default("USER")
-  tier            String   @default("FREE")
-  hashedPassword  String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  papers          Paper[]
-  accounts        Account[]
-  issues          Issue[]
-  lastIssue       DateTime?
-  comments        Comment[]
-  lastComment     DateTime?
-}
-
-
-model Paper {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  simpleId        String   @unique
-  title           String?
-  description     String?
-  questionUrl     String
-  markSchemeUrl   String
-  author          User      @relation(fields: [authorId], references: [id])
-  authorId        String    @db.ObjectId
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  questions       Question[]
-
-  @@unique([questionUrl, markSchemeUrl])
-}
-
-model Question {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
-  paperId       String @db.ObjectId
-  simpleId      String @unique
-  questionUrl   String
-  markSchemeUrl String
-  subject       String @db.String
-  marks         Int
-  difficulty    String
-  paper         Paper  @relation(fields: [paperId], references: [id], onDelete: Cascade)
-
-  @@unique([questionUrl, markSchemeUrl])
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId          String?              @unique
+  name              String?
+  email             String              @unique
+  emailVerified     DateTime?
+  image             String?
+  role              String              @default("USER")
+  tier              String              @default("FREE")
+  tokens            Int                 @default(30)
+  hashedPassword    String?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  Account           Account[]
+  Issue             Issue[]
+  Comment           Comment[]
+  PotencialQuestion PotencialQuestion[]
+  Question          Question[]
+  Paper             Paper[]
 }
 
 model Issue {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  simpleId    String   @unique
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId    String    @unique
   title       String
   description String
-  status      String   @default("OPEN")
-  subject     String
-  author      User     @relation(fields: [authorId], references: [id])
-  authorId    String   @db.ObjectId
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  status      String    @default("OPEN")
+  flag        String    @default("NONE")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  createdBy   User      @relation(fields: [createdById], references: [id])
+  createdById String    @db.ObjectId
   comments    Comment[]
 }
 
 model Comment {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  issueId     String   @db.ObjectId
-  author      User     @relation(fields: [authorId], references: [id])
-  authorId    String   @db.ObjectId
-  content     String
+  simpleId    String   @unique
+  text        String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  createdBy   User     @relation(fields: [createdById], references: [id])
+  createdById String   @db.ObjectId
   issue       Issue    @relation(fields: [issueId], references: [id])
+  issueId     String   @db.ObjectId
 }
 
-model Scoreboard {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId     String   @db.ObjectId
-  paperScore Int
-  verseScore Int
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+model PotencialQuestion {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId        String   @unique
+  title           String
+  description     String
+  file_url        String
+  subject         String
+  level           String
+  exam_board      String
+  topic           String
+  difficulty      Int
+  number_of_marks Int
+  mark_scheme_url String
+  status          String   @default("PENDING")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  createdBy       User     @relation(fields: [createdById], references: [id])
+  createdById     String   @db.ObjectId
+}
 
-  @@unique(userId)
+model Question {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId        String   @unique
+  title           String
+  description     String
+  file_url        String
+  subject         String
+  level           String
+  exam_board      String
+  topic           String
+  difficulty      Int
+  number_of_marks Int
+  mark_scheme_url String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  createdBy       User     @relation(fields: [createdById], references: [id])
+  createdById     String   @db.ObjectId
+}
+
+model Paper {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  simpleId        String   @unique
+  title           String
+  description     String
+  file_url        String
+  number_of_marks Int
+  mark_scheme_url String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  createdBy       User     @relation(fields: [createdById], references: [id])
+  createdById     String   @db.ObjectId
 }
