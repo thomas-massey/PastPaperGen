@@ -22,7 +22,9 @@ const GetStarted = () => {
                 </div>
             ) : (
                 <div className="flex flex-row space-x-4">
-                    <SignInUpButton />
+                    <div className="bg-gray-300 rounded-lg p-4">
+                        <SignInUpButton />
+                    </div>
                 </div>
             )}
         </div>
