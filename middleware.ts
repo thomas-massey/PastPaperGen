@@ -4,5 +4,5 @@ export const config = {
     matcher: [
         "/account/:path*",
         "/api/account/:path*",
-    ]
+    ],
 }

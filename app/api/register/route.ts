@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 
 import prismadb from '@/lib/prismadb';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import generateSimpleId from '@/lib/generateSimpleID';
 
 export async function POST(
