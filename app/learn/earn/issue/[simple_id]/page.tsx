@@ -1,3 +1,5 @@
+"use client"
+
 import CopySimpleId from "@/components/Buttons/CopySimpleId";
 import CommentsForPotentialQuestion from "@/components/Comments/CommentsForPotentialQuestion";
 import LearnNavbar from "@/components/Learn/LearnNavbar";
@@ -41,9 +43,17 @@ export default async function Page({ params }: { params: { simple_id: string } }
     // If it is an image, display it as an image
     // If it is a pdf, display it as an embeded pdf
 
-    const question_file_type = data[0].question_media_file_type
-    const mark_scheme_file_type = data[0].mark_scheme_media_file_type
+    // Get file types
+    let { data: file_type_data, error } = await supabase
+        .rpc('get_file_types', { simple_id: simple_id })
+    let question_file_type = JSON.parse(file_type_data[0].question_mimetype)
+    // Get the mimetype of the question
+    question_file_type = question_file_type?.mimetype
+    let mark_scheme_file_type = JSON.parse(file_type_data[0].mark_scheme_mimetype)
+    // Get the mimetype of the mark scheme
+    mark_scheme_file_type = mark_scheme_file_type?.mimetype
 
+    // Get public URLs
     let { data: question_data } = await supabase
         .storage
         .from('potential_question')
@@ -52,9 +62,10 @@ export default async function Page({ params }: { params: { simple_id: string } }
         .storage
         .from('potential_question')
         .getPublicUrl(`mark_scheme/${simple_id}`)
-    
+
     const question_url = question_data.publicUrl
     const mark_scheme_url = mark_scheme_data.publicUrl
+
 
     // Console output for debugging
     console.log("Data: ")
@@ -106,26 +117,51 @@ export default async function Page({ params }: { params: { simple_id: string } }
             <div className="grid grid-cols-2 gap-4">
                 {/* If there is no media on either front, display "No media attached" otherwise render them */}
                 {/* Question Media */}
-                {question_file_type == null ? (
-                    <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
-                        No media attached
+                {
+                    question_url == null ?
+                        <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
+                            No media attached
                         </div>
-                        ) : (
-                            // Is it an image or a pdf?
-                            question_file_type == "image/png" || question_file_type == "image/jpg" || question_file_type == "image/jpeg" ? (
-                                <Image src={question_url} alt="Question Media" width={500} height={500} />
-                            ) : (
-                                question_file_type == "application/pdf" ? (
-                                    <embed src={question_url} width="500" height="500" type="application/pdf" />
-                                ) : (
-                                    <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
-                                        Media type not supported
+                        :
+                        <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
+                            {/* TODO: use USEEFFECT */}
+                            {
+                                question_file_type == "image/png" || question_file_type == "image/jpg" || question_file_type == "image/jpeg" ?
+                                // Images are not stretched
+                                    <div className="flex justify-center">
+                                        <Image
+                                            src={question_url}
+                                            alt="Question Media"
+                                            style={{ objectFit: "contain" }}
+                                        />
                                     </div>
-                                )
-                            )
-                        )}
+                                    :
+                                    <div>
+                                        Hi
+                                        <embed src={question_url} width="500" height="500" type="application/pdf" />
+                                    </div>
+                            }
+                        </div>
+                }
                 {/* Mark Scheme Media */}
-                <Image src={mark_scheme_url} alt="Mark Scheme Media" width={500} height={500} />
+                {
+                    mark_scheme_url == null ?
+                        <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
+                            No media attached
+                        </div>
+                        :
+                        <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
+                            {
+                                mark_scheme_file_type == "image/png" || mark_scheme_file_type == "image/jpg" || mark_scheme_file_type == "image/jpeg" ?
+                                    <Image
+                                        src={mark_scheme_url}
+                                        alt="Mark Scheme Media"
+                                    />
+                                    :
+                                    <embed src={mark_scheme_url} width="500" height="500" type="application/pdf" />
+                            }
+                        </div>
+                }
             </div>
             <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
                 <Link href={`/learn/earn/`}>
@@ -133,7 +169,7 @@ export default async function Page({ params }: { params: { simple_id: string } }
                 </Link>
             </div>
             <div className="text-lg border-2 border-gray-300 p-2 m-2">
-                <CommentsForPotentialQuestion issue_simple_id={simple_id} />
+                {/* <CommentsForPotentialQuestion issue_simple_id={simple_id} /> */}
             </div>
             <div className="flex justify-center text-lg border-2 border-gray-300 p-2 m-2">
                 <Link href={`/learn/earn/`}>
