@@ -31,7 +31,7 @@ export default function Home() {
                     tracking-tight
                     text-gray-900
                 ">
-                    Sign in to your account
+                    Sign in/create an account
                 </h2>
             </div>
             <AuthForm />
