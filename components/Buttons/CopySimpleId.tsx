@@ -1,6 +1,10 @@
 "use client"
 
-const CopySimpleId = (passed_simple_id: string) => {
+interface simple_id_type {
+    simple_id: string;
+}
+
+const CopySimpleId = (passed_simple_id: simple_id_type) => {
     const simple_id = passed_simple_id?.simple_id;
     // A bar that reads out the simple id and copy button at the end with a blue background
     return (
