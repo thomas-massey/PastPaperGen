@@ -2,8 +2,6 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { supabaseServer } from '@/lib/supabaseServer'
-import generateSimpleId from '@/lib/generateSimpleID'
-import getUserID from '@/lib/getUserID'
 
 export async function POST(request: Request) {
     // Get the form data
