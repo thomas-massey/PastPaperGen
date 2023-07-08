@@ -1,25 +1,37 @@
 "use client"
 
-import Image from 'next/image';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import LogoutButton from '@/components/Account/LogoutButton';
+import { useUser } from "@/hooks/useUser";
+import { supabase } from "@/lib/supabaseClient";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-export default async () => {
-    const { data: session, status } = useSession();
-    const router = useRouter();
+const account = async () => {
+    const { user } = useUser()
+    // Get the simple ID of the user via the supabase API
+    const router = useRouter()
+    const signOutRedirect = () => {
+        supabase.auth.signOut()
+        // Redirect to home page using the router
+        router.push("/")
+    }
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-            <h1 className="text-2xl font-bold">Account</h1>
-            <h2 className="text-xl font-semibold">Details</h2>
-            <p className="text-lg">Name: {session?.user?.name}</p>
-            <p className="text-lg">Email: {session?.user?.email}</p>
-            {/* <p className="text-lg">Simple ID: {simpleId}</p>
-            <p className="text-lg">Tokens: {tokens}</p> */}
-            <p className="text-lg">Image: </p>
-            {/* If the image is null, use the default profile pic */}
-            <Image src={session?.user?.image || '/images/default_profile_picture.png'} width={100} height={100} alt="Profile Picture" />
-            <LogoutButton />
+        <div className="flex flex-col items-center justify-center py-2">
+            <h1 className="text-4xl font-bold">
+                Account
+            </h1>
+            <p className="text-xl">
+                Username: {user?.user_metadata.full_name}
+            </p>
+            <p className="text-xl">
+                Email: {user?.email}
+            </p>
+            <p className="text-xl">
+                SimpleID (for sharing): 
+            </p>
+            <button onClick={signOutRedirect}>Sign Out</button>
+            <Image src={user?.user_metadata.avatar_url} alt="Avatar" width={200} height={200} />
         </div>
     );
 }
+
+export default account;

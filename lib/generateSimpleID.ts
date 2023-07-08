@@ -1,65 +1,15 @@
-import prismadb from '@/lib/prismadb';
+import { supabaseServer } from "./supabaseServer";
 
 export default function generateSimpleId() {
     var idExists: boolean = true;
     var simpleId: string = "";
     while (idExists) {
         idExists = false;
-        simpleId = Math.random().toString(36).substr(2, 8).toUpperCase()
-        prismadb.comment.findFirst({
-            where: {
-                simpleId: simpleId
-            }
-        }).then((comment) => {
-            if (comment) {
-                idExists = true;
-            }
-        });
-        prismadb.issue.findFirst({
-            where: {
-                simpleId: simpleId
-            }
-        }).then((issue) => {
-            if (issue) {
-                idExists = true;
-            }
-        });
-        prismadb.paper.findFirst({
-            where: {
-                simpleId: simpleId
-            }
-        }).then((paper) => {
-            if (paper) {
-                idExists = true;
-            }
-        });
-        prismadb.potencialQuestion.findFirst({
-            where: {
-                simpleId: simpleId
-            }
-        }).then((potencialQuestion) => {
-            if (potencialQuestion) {
-                idExists = true;
-            }
-        });
-        prismadb.question.findFirst({
-            where: {
-                simpleId: simpleId
-            }
-        }).then((question) => {
-            if (question) {
-                idExists = true;
-            }
-        });
-        prismadb.user.findFirst({
-            where: {
-                simpleId: simpleId
-            }
-        }).then((user) => {
-            if (user) {
-                idExists = true;
-            }
-        });
+        simpleId = Math.random().toString(36).substr(2, 8).toLowerCase()
+        supabaseServer.from('potential_question').select('id').eq('id', simpleId).then((result) => {if (result.data && result.data.length > 0) {idExists = true;}})
+        supabaseServer.from('question').select('id').eq('id', simpleId).then((result) => {if (result.data && result.data.length > 0) {idExists = true;}})
+        supabaseServer.from('users').select('id').eq('id', simpleId).then((result) => {if (result.data && result.data.length > 0) {idExists = true;}})
+        supabaseServer.from('paper').select('id').eq('id', simpleId).then((result) => {if (result.data && result.data.length > 0) {idExists = true;}})
     }
     return simpleId;
 }

@@ -46,6 +46,7 @@ const Input: React.FC<InputProps> = ({
                     disabled={disabled}
                     {...register(id, { required })}
                     className={clsx(`
+                        pl-3
                         form-input
                         block
                         w-full
