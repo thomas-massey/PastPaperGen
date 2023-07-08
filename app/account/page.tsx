@@ -34,4 +34,4 @@ const Account = async () => {
     );
 }
 
-export default account;
+export default Account;
