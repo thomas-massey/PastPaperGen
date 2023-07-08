@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabaseClient";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const account = async () => {
+const Account = async () => {
     const { user } = useUser()
     // Get the simple ID of the user via the supabase API
     const router = useRouter()
