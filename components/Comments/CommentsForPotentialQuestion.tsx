@@ -16,7 +16,9 @@ const CommentsForPotentialQuestion = async ({issue_simple_id}: any) => {
             </div>
             <div className="flex flex-col text-2xl">
                 {comments_data?.map((comment: any) => (
-                    <Comment comment={comment} />
+                    <div key={comment.id}>
+                        <Comment comment={comment} />
+                    </div>
                 ))}
             </div>
             {/* Add a comment - positioned to the left */}
