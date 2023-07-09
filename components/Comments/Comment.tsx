@@ -1,4 +1,4 @@
-import { supabaseServer } from "@/lib/supabaseServer";
+import { supabase } from "@/lib/supabaseClient";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +6,7 @@ const Comment = async ({ comment }: any) => {
     // Includes stuff like author, comment, timestamp, etc.
     // Enclose in a box
     // Get the users name from the simple_id within the db
-    const { data: user_data, error: user_error } = await supabaseServer
+    const { data: user_data, error: user_error } = await supabase
         .from('users')
         .select('full_name, avatar_url')
         .eq('simple_id', comment.author_simple_id)
